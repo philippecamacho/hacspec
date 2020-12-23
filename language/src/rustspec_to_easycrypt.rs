@@ -366,6 +366,14 @@ fn get_type_default(t: &BaseTyp) -> Expression {
                     (Borrowing::Consumed, i_s.clone()),
                 )],
             ),
+            "FieldElement" => Expression::FuncCall(
+                None,
+                (Ident::Original(name.clone()), i_s.clone()),
+                vec![(
+                    (Expression::Lit(Literal::Int128(8)), i_s.clone()),
+                    (Borrowing::Consumed, i_s.clone()),
+                )],
+            ),
             _ => panic!("Trying to get default for {}", t),
         },
         _ => panic!("Trying to get default for {}", t),
